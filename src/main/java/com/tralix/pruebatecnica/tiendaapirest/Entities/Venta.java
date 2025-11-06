@@ -5,16 +5,16 @@ import java.time.LocalDateTime;
 public class Venta {
 
     private Long id ;
-    private Long productoId;
+    private Producto producto;
     private int cantidad;
     private LocalDateTime fechaVenta;
 
     public Venta(){
     }
 
-    public Venta(Long id, Long productoId, int cantidad, LocalDateTime fechaVenta) {
+    public Venta(Long id, Producto producto, int cantidad, LocalDateTime fechaVenta) {
         this.id = id;
-        this.productoId = productoId;
+        this.producto = producto;
         this.cantidad = cantidad;
         this.fechaVenta = fechaVenta;
     }
@@ -27,12 +27,12 @@ public class Venta {
         this.id = id;
     }
 
-    public Long getProductoId() {
-        return this.productoId;
+    public Producto getProducto() {
+        return this.producto;
     }
 
-    public void setProductoId(Long productoId) {
-        this.productoId = productoId;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
     public int getCantidad() {
@@ -55,7 +55,7 @@ public class Venta {
     public String toString() {
         return "La Venta es {" +
                 "id=" + id +
-                ", productoId=" + productoId +
+                ", Producto=" + producto +
                 ", cantidad=" + cantidad +
                 ", fechaVenta=" + fechaVenta +
                 '}';
