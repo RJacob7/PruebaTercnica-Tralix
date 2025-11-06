@@ -5,14 +5,14 @@ import java.time.LocalDateTime;
 public class Venta {
 
     private Long id ;
-    private int productoId;
+    private Long productoId;
     private int cantidad;
     private LocalDateTime fechaVenta;
 
     public Venta(){
     }
 
-    public Venta(Long id, int productoId, int cantidad, LocalDateTime fechaVenta) {
+    public Venta(Long id, Long productoId, int cantidad, LocalDateTime fechaVenta) {
         this.id = id;
         this.productoId = productoId;
         this.cantidad = cantidad;
@@ -27,11 +27,11 @@ public class Venta {
         this.id = id;
     }
 
-    public int getProductoId() {
+    public Long getProductoId() {
         return this.productoId;
     }
 
-    public void setProductoId(int productoId) {
+    public void setProductoId(Long productoId) {
         this.productoId = productoId;
     }
 
