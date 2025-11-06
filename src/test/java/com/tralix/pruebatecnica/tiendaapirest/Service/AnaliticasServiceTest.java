@@ -52,6 +52,7 @@ public class AnaliticasServiceTest {
         ventasDePrueba = Arrays.asList(venta1, venta2, venta3, venta4, venta5, venta6, venta7);
     }
 
+    // Test de services getTotalVentas()
     @Test
     public void testGetTotalVentas(){
         //Decirle al mock que cuando llamemos el repositorio nos devuelva las ventas
@@ -69,6 +70,7 @@ public class AnaliticasServiceTest {
         verify(ventaRepository, times(1)).findAll();
     }
 
+    //Test de Services TopProductos
     @Test
     public void testGetTopProductos() {
         when(ventaRepository.findAll()).thenReturn(ventasDePrueba);
@@ -99,6 +101,7 @@ public class AnaliticasServiceTest {
         verify(ventaRepository, atLeastOnce()).findAll();
     }
 
+    // Test de services ventas por categorias
     @Test
     public void testGetVentasPorCategoria() {
         when(ventaRepository.findAll()).thenReturn(ventasDePrueba);
@@ -119,6 +122,7 @@ public class AnaliticasServiceTest {
         verify(ventaRepository, atLeastOnce()).findAll();
     }
 
+    // Test de services promedio de ventas por producto
     @Test
     public void testGetPromedioVentaPorProducto() {
         // Arrange
