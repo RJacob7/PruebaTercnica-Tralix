@@ -21,8 +21,8 @@ public class ProductoService {
     public Producto crearProducto(ProductoDTO productoDTO){
         Producto producto = new Producto();
         producto.setNombre(productoDTO.getNombre());
-        producto.setCategoria(producto.getCategoria());
-        producto.setPrecio(producto.getPrecio());
+        producto.setCategoria(productoDTO.getCategoria());
+        producto.setPrecio(productoDTO.getPrecio());
         return repository.save(producto);
     }
 
