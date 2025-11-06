@@ -67,4 +67,18 @@ public class AnaliticasService {
                 })
                 .collect(Collectors.toList());
     }
+
+    //3. AGRUPAR VENTAS POR CATEGORIA Y CALCULAR EL TOTAL VENDIDO POR CADA UNA
+    public Map<String, BigDecimal> getVentasPorCategoria(){
+        return repository.findAll().stream()
+                .collect(Collectors.groupingBy(v -> v.getProducto().getCategoria(), Collectors.reducing(BigDecimal.ZERO,
+                                v -> v.getProducto().getPrecio()
+                                        .multiply(BigDecimal.valueOf(v.getCantidad())),
+                                BigDecimal::add
+                        )
+                ));
+    }
+
+    //4. CALCULA EL MONTO PROMEDIO VENDIDO POR PRODUCTO
+    
 }
