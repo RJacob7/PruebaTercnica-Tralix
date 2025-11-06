@@ -36,6 +36,7 @@ public class GlobalExceptionHandler {
     }
 
     //Manejo de otra Excepcion no capturada
+    @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handlerGenericException(Exception ex, WebRequest request){
         ErrorResponse errorResponse = new ErrorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
