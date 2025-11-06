@@ -1,11 +1,13 @@
 package com.tralix.pruebatecnica.tiendaapirest.Service;
 
 import com.tralix.pruebatecnica.tiendaapirest.Entities.Producto;
+import com.tralix.pruebatecnica.tiendaapirest.Entities.Venta;
 import com.tralix.pruebatecnica.tiendaapirest.Repository.VentaRepository;
 import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -32,7 +34,7 @@ public class AnaliticasService {
     public List<Map<String, Object>> getTopProductos(int n){
 
         //primero agrupamos las ventas por productos y de ahi sumamos sus ingresos de cada producto
-        Map<Long, BigDecimal> ingresosPorProducto = ventaRepository.findAll().stream()
+        Map<Long, BigDecimal> ingresosPorProducto = repository.findAll().stream()
                 .collect(Collectors.groupingBy(
                         venta -> venta.getProducto().getId(),
                         Collectors.reducing(
@@ -49,7 +51,7 @@ public class AnaliticasService {
                 .limit(n)
                 .map(entry -> {
                     // Buscar información del producto
-                    Venta venta = ventaRepository.findAll().stream()
+                    Venta venta = repository.findAll().stream()
                             .filter(v -> v.getProducto().getId().equals(entry.getKey()))
                             .findFirst()
                             .orElse(null);
