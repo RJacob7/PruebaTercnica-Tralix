@@ -13,8 +13,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class) //Activamos mockito para el testeo
 public class ProductoServiceTest {
@@ -47,7 +46,7 @@ public class ProductoServiceTest {
         assertEquals(idBUscado, resultado.get().getId()); //es el producto correcto?
 
         //verificar que efectivamente llamo al repository
-        //verify(repository.findById(idBUscado));
+        verify(repository, times(1)).findById(idBUscado);
 
     }
 }
