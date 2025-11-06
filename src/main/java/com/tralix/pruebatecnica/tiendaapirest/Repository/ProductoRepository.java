@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
-public class ProductRepository {
+public class ProductoRepository {
 
     //Lista en memoria
     private final List<Producto> productos = new ArrayList<>();
@@ -19,7 +19,7 @@ public class ProductRepository {
     private final AtomicLong idGenerator = new AtomicLong(1);
 
 
-    public ProductRepository(){
+    public ProductoRepository(){
         //Electronica
         save(new Producto(null, "Laptop AlienWare", "Electronica", new BigDecimal("30000.00")));
         save(new Producto(null, "iPhone 15 Pro", "Electronica", new BigDecimal("25000.00")));
