@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
 
 
-public class ProductDTO {
+public class ProductoDTO {
 
     //tenemos que aplicar las validaciones
     @NotBlank(message = "El nombre es obligatorio") //validar que si incluya datos
@@ -22,10 +22,10 @@ public class ProductDTO {
     private BigDecimal precio;
 
     //Constructor vacio como metodo sobrecargado para otros usos
-    public ProductDTO(){
+    public ProductoDTO(){
     }
 
-    public ProductDTO(String nombre, String categoria, BigDecimal precio) {
+    public ProductoDTO(String nombre, String categoria, BigDecimal precio) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.precio = precio;
