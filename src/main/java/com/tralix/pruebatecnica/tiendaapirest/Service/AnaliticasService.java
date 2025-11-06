@@ -80,5 +80,46 @@ public class AnaliticasService {
     }
 
     //4. CALCULA EL MONTO PROMEDIO VENDIDO POR PRODUCTO
-    
+    public Map<String, Object> getPromedioVentaPorProducto(){
+
+        //Agrupar ventas por producto
+        Map<Long, List<Venta>> ventasPorProductos = repository.findAll().stream()
+                .collect(Collectors.groupingBy(v -> v.getProducto().getId()));
+
+        //calcular promedio para cada producto
+        List<Map<String, Object>> promedios = ventasPorProductos.entrySet().stream()
+                .map(entry -> {
+                    Long productoId = entry.getKey();
+                    List<Venta> ventas = entry.getValue();
+
+                    //calcular total de ingresos del producto
+                    BigDecimal totalIngresos = ventas.stream()
+                            .map(venta -> venta.getProducto().getPrecio()
+                                    .multiply(BigDecimal.valueOf(venta.getCantidad())))
+                            .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+                    //calcular promedio
+                    BigDecimal promedio = totalIngresos.divide(
+                            BigDecimal.valueOf(ventas.size()),
+                            2,
+                            BigDecimal.ROUND_HALF_UP
+                    );
+
+                    Map<String, Object> resultado = new HashMap<>();
+                    resultado.put("productoId", productoId);
+                    resultado.put("nombreProducto", ventas.get(0).getProducto().getNombre());
+                    resultado.put("numeroVentas", ventas.size());
+                    resultado.put("totalIngresos", totalIngresos);
+                    resultado.put("promedioVenta", promedio);
+
+                    return resultado;
+                })
+                .collect(Collectors.toList());
+
+        Map<String, Object> respuesta = new HashMap<>();
+        respuesta.put("promedios", promedios);
+        return respuesta;
+    }
+
+
 }
