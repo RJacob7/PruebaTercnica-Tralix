@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "7f432a71-1ba3-4efa-880d-7670cbc7cf8c",
+		"name": "Tienda ApiRest -Tralix",
+		"description": "Las colecciones van de acuerdo a la tabla de requerimientos de la prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48421809",
+		"_collection_link": "https://rjacob7-5e3b6807-5344748.postman.co/workspace/edb32dc8-2d6d-4256-80e0-32bb332a8eb5/collection/48421809-7f432a71-1ba3-4efa-880d-7670cbc7cf8c?action=share&source=collection_link&creator=48421809"
+	},
+	"item": [
+		{
+			"name": "- Get: Listar productos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Xbox\",\n  \"categoria\": \"Electronica\",\n  \"precio\": 17000.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "- Post: Crear un producto",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Cama Matrimonial\",\n  \"categoria\": \"Hogar\",\n  \"precio\": 10000.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "- Post: Crear Venta",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"productoId\": 1,\n     \"cantidad\": 2\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ventas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ventas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "- Get: Listar ventas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"productoId\": 3,\n  \"cantidad\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ventas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ventas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "- Get: getTotalVentas()",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Analytics/total",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Analytics",
+						"total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "- Get: TopVentas",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Analytics/top?n=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Analytics",
+						"top"
+					],
+					"query": [
+						{
+							"key": "n",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "-Get: Promedio Productos",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Analytics/promedio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Analytics",
+						"promedio"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
