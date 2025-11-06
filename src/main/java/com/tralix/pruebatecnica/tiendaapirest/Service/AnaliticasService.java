@@ -120,6 +120,5 @@ public class AnaliticasService {
         respuesta.put("promedios", promedios);
         return respuesta;
     }
-
-
+    
 }
