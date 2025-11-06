@@ -47,7 +47,7 @@ public class VentaRepository {
     }
 
     //Verifica si existe una venta con dicho Id
-    public boolean existById(Long id){
+    public boolean existsById(Long id){
         return ventas.stream().anyMatch(v -> v.getId().equals(id));
     }
 
