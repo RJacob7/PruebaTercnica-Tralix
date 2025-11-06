@@ -1,16 +1,13 @@
 package com.tralix.pruebatecnica.tiendaapirest.Service;
 
-import com.tralix.pruebatecnica.tiendaapirest.Entities.Producto;
 import com.tralix.pruebatecnica.tiendaapirest.Entities.Venta;
 import com.tralix.pruebatecnica.tiendaapirest.Repository.VentaRepository;
-import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -120,5 +117,5 @@ public class AnaliticasService {
         respuesta.put("promedios", promedios);
         return respuesta;
     }
-    
+
 }
